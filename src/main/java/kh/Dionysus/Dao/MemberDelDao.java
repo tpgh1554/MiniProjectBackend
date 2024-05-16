@@ -12,12 +12,12 @@ public class MemberDelDao {
     private Statement stmt = null;
     private ResultSet rs = null;
     private PreparedStatement pStmt = null;
-    public boolean memberDelete(String id) {
+    public boolean memberDelete(String id, String name, String jumin) {
         int result = 0;
         String sql1 = "DELETE FROM SCORE_TB WHERE USER_ID = ?";
         String sql2 = "DELETE FROM JJIM_TB WHERE USER_ID = ?";
         String sql3 = "DELETE FROM REVIEW_TB WHERE USER_ID = ?";
-        String sql4 = "DELETE FROM MEMBER_TB WHERE USER_ID = ?";
+        String sql4 = "DELETE FROM MEMBER_TB WHERE USER_ID = ? AND USER_NAME = ? AND USER_JUMIN = ?";
         try {
             conn = Common.getConnection();
 
@@ -42,6 +42,8 @@ public class MemberDelDao {
             // 네 번째 DELETE 쿼리 실행
             pStmt = conn.prepareStatement(sql4);
             pStmt.setString(1, id);
+            pStmt.setString(2, name);
+            pStmt.setString(3, jumin);
             result += pStmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

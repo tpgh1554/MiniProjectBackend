@@ -26,7 +26,7 @@ public class MypageController {
     @PostMapping("/memberdel")
     public ResponseEntity<Boolean> memberdel(@RequestBody MemberDto Dto) {
         MemberDelDao dao = new MemberDelDao();
-        boolean isTrue = dao.memberDelete(Dto.getUser_id());
+        boolean isTrue = dao.memberDelete(Dto.getUser_id(), Dto.getUser_name(), Dto.getUser_jumin());
         return new ResponseEntity<>(isTrue, HttpStatus.OK);
     }
 
