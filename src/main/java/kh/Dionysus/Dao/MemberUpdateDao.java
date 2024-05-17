@@ -12,8 +12,7 @@ public class MemberUpdateDao {
     private ResultSet rs = null;
     private PreparedStatement pSmt = null;
 
-
-
+    // 회원 정보 조회
     public MemberDto memberSelect(String userid) {
         MemberDto dto = new MemberDto();
         String sql = null;
@@ -32,7 +31,6 @@ public class MemberUpdateDao {
                 String phone = rs.getString("USER_PHONE");
                 String addr = rs.getString("USER_ADDRESS");
 
-
                 dto.setUser_id(id);
                 dto.setUser_pw(pwd);
                 dto.setUser_name(name);
@@ -50,6 +48,8 @@ public class MemberUpdateDao {
         }
         return dto;
     }
+
+    // 회원 정보 수정
     public Boolean memberUpdate(MemberDto dto) {
         int result = 0;
         String sql = "UPDATE MEMBER_TB SET user_pw = ?,user_name=?," +
