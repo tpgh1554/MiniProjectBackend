@@ -2,7 +2,7 @@ package kh.Dionysus.Controller;
 import kh.Dionysus.Dao.JjimDao;
 import kh.Dionysus.Dao.MemberDelDao;
 import kh.Dionysus.Dao.MemberUpdateDao;
-import kh.Dionysus.Dao.ReviewDao;
+//import kh.Dionysus.Dao.ReviewDao;
 import kh.Dionysus.Dto.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,13 +57,13 @@ public class MypageController {
 
 
     // 리뷰
-    @PostMapping("/reviewalcohol")
-    public ResponseEntity<List<MypageDto>> reviewalcohol(@RequestBody MypageDto Dto) throws SQLException {
-        ReviewDao dao = new ReviewDao();
-        List<MypageDto> reviewList = dao.reviewSelect(Dto.getUser_id());
-        List<MypageDto> jjimAlcoholList = dao.reviewAlcoholSelect(reviewList);
-        return new ResponseEntity<>(jjimAlcoholList, HttpStatus.OK);
-    }
+//    @PostMapping("/reviewalcohol")
+//    public ResponseEntity<List<MypageDto>> reviewalcohol(@RequestBody MypageDto Dto) throws SQLException {
+//        ReviewDao dao = new ReviewDao();
+//        List<MypageDto> reviewList = dao.reviewSelect(Dto.getUser_id());
+//        List<MypageDto> jjimAlcoholList = dao.reviewAlcoholSelect(reviewList);
+//        return new ResponseEntity<>(jjimAlcoholList, HttpStatus.OK);
+//    }
 
 
 }
